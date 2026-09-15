@@ -1,0 +1,38 @@
+<div class="page-container">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">JSF Example</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container main-content">
+    <br />
+    <div *ngIf="loading" class="alert alert-info">Loading employees...</div>
+    <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+    <table class="table table-striped table-bordered" *ngIf="!loading && !error">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Full Name</th>
+          <th>Address</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Salary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td>{{ employee.id }}</td>
+          <td>{{ employee.fullName }}</td>
+          <td>{{ employee.address }}</td>
+          <td>{{ employee.email }}</td>
+          <td>{{ employee.phone }}</td>
+          <td>{{ employee.salary }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
